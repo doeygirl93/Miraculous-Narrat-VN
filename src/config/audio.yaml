@@ -1,0 +1,23 @@
+files:
+  vivaldi:
+    loop: false
+    src: music/vivaldiConcerto.mp3
+  mozart:
+    loop: false
+    src: music/mozartQuintet.mp3
+  click:
+    src: audio/click.ogg
+  game_start:
+    volume: 0.9
+    src: audio/game_start.ogg
+  failure:
+    src: audio/failure.ogg
+options:
+  volume: 0.5
+  musicFadeInTime: 0.5
+  musicFadeInDelay: 0.5
+  musicFadeOutTime: 0.5
+audioTriggers:
+  onPlayerAnswered: click
+  onPressStart: game_start
+  onSkillCheckFailure: failure

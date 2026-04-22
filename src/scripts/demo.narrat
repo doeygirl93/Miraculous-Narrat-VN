@@ -1,0 +1,82 @@
+main: 
+  set_screen harbor
+  " The Hot wind rolls off of the sea's breeze"
+  "Salt barrraids ur face"
+  talk francis idle "Ho HO HO!! Look at it... All the wealth in the world in my fingertips"
+  think francis idle "Oh how i love medevil capitilism"
+  think francis idle "\" Don't it fill you with excitement? \" He asks, smirling to u \" Think of all the money there is to be make at this harbor \" hahaha"
+
+  choice:
+    "This is the text ppl see before they make a choice"
+    "Dialog option #1":
+      "Response to dialog option #1"
+      jump theMeeting
+    "Dia opt #2":
+      "responds to ts"
+      jump theMeeting
+    
+
+theMeeting:
+  set_screen road 
+  think francis idle "Your business partner bounds ahead of you to meet the man of the hour."
+  think isaac idle "The supplier applies a disinterested gaze to the excitable Francis but nods when you approach."
+  "While Francis inspects the barrels of wine for damages, Isaac leans into you."
+  talk isaac idle "I understand you're the one fronting the money for this, yes?"
+  "You nod."
+  talk isaac idle "So this man's service was merely to connect us?"
+  choice:
+    talk isaac idle "What do you say we cut him out of our arrangement? Not immediately, but soon."
+    "\"I couldn't. I gave him my word.\"":
+      set data.willingToBetray false
+      think isaac idle "The stiff-looking merchant appraises you, \"Admirable,\" he says finally."
+    "\"So long as the price is right.\""
+      set data.willingToBetray true
+      think isaac idle "He dips his head, \"It will be.\""
+  think francis idle "\"It all looks good!\" He calls from behind a barrel."
+    talk isaac idle "If there's nothing else, then let's make it a deal."
+  think isaac idle "He holds out a hand."
+  add_stat money -100
+  "You pass him the agreed upon one hundred florins."
+    jump theRoad
+
+theRoad:
+  set_screen road
+  think francis idle "Ambling along the road to the city, Francis turns to you."
+  talk francis idle "I think that went rather well."
+  if (== $willingToBetray true):
+    "You kick at a rock, worrying about what you told Isaac."
+    "Ugh maybe i shouldn't of done that to him . . . ."
+  talk francis idle "I can only think about how much money we're going to make reselling all that wine."
+    choice:
+    talk francis idle "I noticed you two had a conversation without me. What did you talk about?"
+    "\"He asked if I would cut you out of the deal. I denied him, of course.\"" if (== $willingToBetray false):
+      think francis idle "Your partner's eyes widen, \"The audacity on him! I was hardly ten feet away!\""
+    "\"Trying to get me to pay more for the barrels, claiming the seas were rough.\"" if (== $willingToBetray true):
+      think francis idle "He smiles, \"Typical of his kind, always trying to alter the deal.\""
+  talk francis idle "Anyway, I hope our buyer is as eager as he was when I last spoke to him."
+  jump theArrival
+
+theArrival:
+  set_screen hunt
+  "Despite the noise of the gathered huntsmen, you find your buyer leaned casually against his horse."
+  talk philip idle "Good afternoon, gentlemen. I take it the wine is in your hands?"
+  think francis idle "Francis nods, \"We just confirmed the shipment.\""
+  talk philip idle "Excellent."
+  jump philipDialogTree
+
+
+philipDialogTree:
+  choice:
+    think philip idle "He regards you coolly."
+    "\"It's the highest quality stuff you could ever want.":
+      think philip idle "His face does not change, \"I'm glad to hear it.\""
+      jump philipDialogTree
+    "\"I think an advance on the sale is in order.\"" if (< (get_stat_value money) 150):
+      talk philip idle "I would be forced to agree."
+      add_stat money 50
+      think philip idle "He opens a pocket in his saddlebag and tosses you a pouch."
+      jump philipDialogTree
+    "\"Good luck on your hunt.\""
+      think philip idle "He nods, \"Thank you. A pleasure doing business with you both.\""
+      think philip idle "He swings up onto his horse and trots off."
+      jump tutorialEnding

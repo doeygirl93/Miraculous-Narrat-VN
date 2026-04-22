@@ -1,0 +1,9 @@
+screens:
+  default:
+    background: img/backgrounds/default.webp
+  harbor:
+    background: img/backgrounds/harbor.webp
+  hunt:
+    background: img/backgrounds/hunt_departure.webp
+  road:
+    background: img/backgrounds/windswept_road.webp

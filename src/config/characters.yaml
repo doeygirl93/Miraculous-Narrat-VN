@@ -1,0 +1,30 @@
+config:
+  imagesPath: "./img/characters/"
+characters:
+  game:
+    name: ""
+    color: white
+  player:
+    style:
+      color: orange
+    sprites:
+      idle: none
+    name: You
+  francis:
+    sprites:
+      idle: francis.webp
+    style:
+      color: white
+    name: Francis
+  isaac:
+    sprites:
+      idle: isaac.webp
+    style:
+      color: white
+    name: Isaac
+  philip:
+    sprites:
+      idle: philip.webp
+    style:
+      color: white
+    name: Philip
