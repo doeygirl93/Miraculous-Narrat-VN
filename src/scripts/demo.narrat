@@ -1,82 +1,141 @@
 main: 
-  set_screen harbor
-  " The Hot wind rolls off of the sea's breeze"
-  "Salt barrraids ur face"
-  talk francis idle "Ho HO HO!! Look at it... All the wealth in the world in my fingertips"
-  think francis idle "Oh how i love medevil capitilism"
-  think francis idle "\" Don't it fill you with excitement? \" He asks, smirling to u \" Think of all the money there is to be make at this harbor \" hahaha"
+  set data.loop_count 0
+  set_screen city
+  " Its year 2067 in France paris"
+  play music mozart
+  " Ever since AI has taken over the city the akumatized villains have grown powerful "
+  " Paris thought that Capitilism and drop down econimics would be the answer. .. . . But it wasn't. Over time the wealth inequality has gotten so bad "
+  " The only hope that the public has?? Its in Paris's super heros, Ladybug and Cat noir. But for the last couple of year There wearabouts have been unknown"
+  wait 500
+  talk marinette idle "WHAT ARE TOU TTALKING ABOUT I'M RIGHT HERE???? HUH"
+  wait 100
+  talk marinette idle " STOP LYIN TO THE VEIWERS VRO DA FUC"
+  " Now ou just ruined the suprise"
+  talk marinette idle " Oh my bad vro you can countinue"
+  " Its already revealed but I guess soo. But here is our hero in the basement of the supreme overlord of paris. and Shes? uhhhh. ugh you just take it from here"
+  jump SHOP_BASEMENT
+
+SHOP_BASEMENT:
+  set_screen city
+  talk marinette idle " Honestly I need to start locking in.. .  I've been. lets say avioding paris for almost a year and honestly its all cat noirs fault...  i miss him SO much. I just wish i could see him again"
+  talk marinette idle " You know what even if he isn't here i see have my baby gurl adriain~ also if he was here he would tell me to stop  the akumatized villains"
+  think marinette idle " As i stand above the tall building in paris i realized how much this city has truely chance in contrast to me who's just been a depressed bum this whole time ..  ."
+  talk marinette idle " UGHHH i needa snap out of it. Ok marrinete THINK whats the biggest problem i needa solve? WAIT i needa investigate the rise of the akuma and everything"
+  talk marinette idle " UGH but i've lost all my clues what should i do now :c"
+  jump SHOP_DLTREE_ONE
+
+SHOP_DLTREE_ONE:
+  wait 100
 
   choice:
-    "This is the text ppl see before they make a choice"
-    "Dialog option #1":
-      "Response to dialog option #1"
-      jump theMeeting
-    "Dia opt #2":
-      "responds to ts"
-      jump theMeeting
+    talk marinette idle "Ok, so where should i got first..?"
+    "Check the Mayor's building downtown" if (< $data.loop_count 3):
+      set data.loop_count (+ $data.loop_count 1)
+      talk marinette idle "Ugh that building is buzzing witht the agreste bots. I DONT think i'm ready for that. Ugh marinette you need a better lead. . . ."
+      jump SHOP_DLTREE_ONE
+
+    "investigate the Eiffel tower" if (< $data.loop_count 3):
+      set data.loop_count (+ $data.loop_count 1)
+      talk marinette idle "Hmm the tower is basically a just a billboard with all the ads plastered around it. Plus it basically falling apart there is no way any base would be there. Think Marinette!!"
+      jump SHOP_DLTREE_ONE
+
+    "Go to the local clothing store" if (>= $data.loop_count 3):
+      set data.loop_count 0
+      resume music
+      talk marinette idle "Wait... that old dingy boutique at the heart of downtown . . Me and *sniffs* cat noir found it was our biggest lead. But strangly once we found that out we got drove out of paris . . ?"
+      talk marinette idle " The place is wayyyy to suspious for me to leave it alone . . .. "
+      talk marinette idle " Ok lets go"
+      jump SCENE_1_ATTIC
+
+    " Cry about my baby cat noir" if (< $data.loop_count 3):
+      set data.loop_count (+ $data.loop_count 1)
+      talk marinette idle "I mean, I could... but my eyes are already puffy. I need to focus on the mission! ok girl lets try and find a clue before allthat"
+      jump SHOP_DLTREE_ONE
+SCENE_1_ATTIC:
+  set_screen basement
+  " Then she went out into the city -carefully avoding all the dangerous bots and getting to the old local boutique shop in time"
+  wait 7000
+  think marinette idle " OMG I'VE BEEN HEAR FOR HOURSSS...."
+  wait 1000
+  " Then she searched some more for another couple of hours "
+  wait 3000
+  talk marinette idle " Ok i'm SOOO done with this omg i gotta go ts pmo so badly"
+  " ruamges through another pile"
+  talk marinette idle " Huh what is this? i've NEVEVR seen this before omg"
+
+  talk marx idle " WHO AWAKE ME FROM MY SLUMER"
+
+  "(shriek) AHAHAHAHAHHAAHAHHAHHA"
+  "entire building rumbles.. . ."
+
+  talk marinette idle "VRO WHO TF ARE YOU"
+  wait 300
+  talk marx idle " I am karl marx . .. . "
+  talk marx idle "hmmmm you don't look quite right do you ladybug ..  .?"
+  pause music
+  wait 500
+  "TRANFORMATION TAKES PLACE"
+  "She gets covered in red sparkles and glows. . ..  ."
+  resume music
+  talk marinette commie "HUH WHAT WHAT WHY DID I BECOME COMMUNIST"
+  wait 100
+  talk marx idle " Well period you looks so much better than in that damm bug outfit"
+  talk marx idle " Plus you don't 'become' communist you've actually already been communist"
+  think marinette commie "AM I COMMUNITIZED OH NO I NEED TO RUN AWAY"
+  jump BASEMENT_DLTREE_ONE
+
+BASEMENT_DLTREE_ONE:
+  wait 100
+  talk marx idle " RIght now all the problems in paris is because of.. . .  darn capitalism. ANd unless you take time to fix this communist will forever ruin paris"
+  talk marx idle "but ultimately the choice is yours to accept me"
+  choice:
+    talk marinette idle "Ok, so am i really a comminst at heart?"
+    "FAKKKK NOOO":
+      talk marinette idle "ya know buddy im LEAVING"
+      add_stat money 100
+      talk marx idle " you were the last hope in this evil evil world. .  . ."
+      talk adrian evil "wow father your right she is a sell out huh"
+      talk Gabe idle "You should of always listen to me son. I told your goofy ahh friend who has a big crush on you was ladybug"
+      talk Gabe idle " LADYBUG OR SHALL I SAY MARRINETE JOIN THE DARK SIDE"
+      talk marinette cap "You know i always messed wit capilism hehehhe"
+      add_stat money 10000
+      talk Gabe idle " I'VE HEARD ENOUGH 1 BILLION DOLLARS NOW FOR CAPILISM OVERTAKE"
+      talk marinette cap " hehehhe i know thats right....."
+      "And then she just left? For mounths paris had been waiting for there hero and eventually tey sucummbed to the bougises and die...."
+      " CAPITLISIC ENDING"
+      "Final Capital accumulated: CEO level"
+
+    "Yk what its about time for a revolution":
+      talk marinette idle "ya know buddy i've always hated my life and working like a slave. . .. "
+      talk marx idle " i told you comminism chooses you! Now lets go"
+      add_stat money 10000
+      talk Gabe idle " I'VE HEARD ENOUGH YOU SHOULDn'T OF DONE THIS LADY BUG"
+      talk adrian idle " I've always loved you lets run away!"
+      talk marinette commie " you know what hawkmoth i had enough wit you and ur capilism"
+      talk marinette commie " The bakery is closed now...."
+      talk marinette commie " But the resolution has just started"
+      " COMMIE ENDING"
+      "Final Capital accumulated: dead broke"
+  
+    " Cry about my baby cat noir":
+      set data.loop_count (+ $data.loop_count 1)
+      think marrinete idle " I MISS MY BABY GURL UGHHHHH"
+      talk marx idle " Sooo is that a yess or a know??"
+      jump BASEMENT_DLTREE_ONE 
+    " beats up marx and summons adrian " if (>= $data.loop_count 3):
+      "adirain comes out of the shawdows"
+      talk adrian idle " Yk what? I'm done beeing a push over marrinete "
+      talk marinette idle " WAIT UR LEAVING UR FATHER LIVING WITH ME AND WILL GET A HOUSE 3 KIDS AND A HAMSTER"
+      talk adriain idle " no i'm done being a push over to you. I WAS RUNNING AWAY FROM YOU BUT YOU ALWAY HAVE TO COME LOOK FOR ME"
+      talk adriain evil " I'VE WASTED MY WHOLE LIFE RUNNING AWAY FROM YOU AND NOW IM DONE AND CAPILISTIC UGH"
+      add_stat money 100000
+      talk adriain evil "TAKE THIS AND LEAVE ME ALONE CHUD"
+      talk marx idle " ugh why were you dating such a capilistc marinette yk what? im leaving to fuc this commie shit"
+      talk marinette idle " NOOO IM ALL ALONE FUCK MY FUCKING CHUNGUS LIFE"
+      " LONELY ENDING"
+      "Final Capital accumulated: Rich in Money Broke in love. . . ."
+
     
-
-theMeeting:
-  set_screen road 
-  think francis idle "Your business partner bounds ahead of you to meet the man of the hour."
-  think isaac idle "The supplier applies a disinterested gaze to the excitable Francis but nods when you approach."
-  "While Francis inspects the barrels of wine for damages, Isaac leans into you."
-  talk isaac idle "I understand you're the one fronting the money for this, yes?"
-  "You nod."
-  talk isaac idle "So this man's service was merely to connect us?"
-  choice:
-    talk isaac idle "What do you say we cut him out of our arrangement? Not immediately, but soon."
-    "\"I couldn't. I gave him my word.\"":
-      set data.willingToBetray false
-      think isaac idle "The stiff-looking merchant appraises you, \"Admirable,\" he says finally."
-    "\"So long as the price is right.\""
-      set data.willingToBetray true
-      think isaac idle "He dips his head, \"It will be.\""
-  think francis idle "\"It all looks good!\" He calls from behind a barrel."
-    talk isaac idle "If there's nothing else, then let's make it a deal."
-  think isaac idle "He holds out a hand."
-  add_stat money -100
-  "You pass him the agreed upon one hundred florins."
-    jump theRoad
-
-theRoad:
-  set_screen road
-  think francis idle "Ambling along the road to the city, Francis turns to you."
-  talk francis idle "I think that went rather well."
-  if (== $willingToBetray true):
-    "You kick at a rock, worrying about what you told Isaac."
-    "Ugh maybe i shouldn't of done that to him . . . ."
-  talk francis idle "I can only think about how much money we're going to make reselling all that wine."
-    choice:
-    talk francis idle "I noticed you two had a conversation without me. What did you talk about?"
-    "\"He asked if I would cut you out of the deal. I denied him, of course.\"" if (== $willingToBetray false):
-      think francis idle "Your partner's eyes widen, \"The audacity on him! I was hardly ten feet away!\""
-    "\"Trying to get me to pay more for the barrels, claiming the seas were rough.\"" if (== $willingToBetray true):
-      think francis idle "He smiles, \"Typical of his kind, always trying to alter the deal.\""
-  talk francis idle "Anyway, I hope our buyer is as eager as he was when I last spoke to him."
-  jump theArrival
-
-theArrival:
-  set_screen hunt
-  "Despite the noise of the gathered huntsmen, you find your buyer leaned casually against his horse."
-  talk philip idle "Good afternoon, gentlemen. I take it the wine is in your hands?"
-  think francis idle "Francis nods, \"We just confirmed the shipment.\""
-  talk philip idle "Excellent."
-  jump philipDialogTree
+      
 
 
-philipDialogTree:
-  choice:
-    think philip idle "He regards you coolly."
-    "\"It's the highest quality stuff you could ever want.":
-      think philip idle "His face does not change, \"I'm glad to hear it.\""
-      jump philipDialogTree
-    "\"I think an advance on the sale is in order.\"" if (< (get_stat_value money) 150):
-      talk philip idle "I would be forced to agree."
-      add_stat money 50
-      think philip idle "He opens a pocket in his saddlebag and tosses you a pouch."
-      jump philipDialogTree
-    "\"Good luck on your hunt.\""
-      think philip idle "He nods, \"Thank you. A pleasure doing business with you both.\""
-      think philip idle "He swings up onto his horse and trots off."
-      jump tutorialEnding

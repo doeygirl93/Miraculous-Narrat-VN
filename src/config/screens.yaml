@@ -1,9 +1,13 @@
 screens:
   default:
     background: img/backgrounds/default.webp
-  harbor:
-    background: img/backgrounds/harbor.webp
-  hunt:
-    background: img/backgrounds/hunt_departure.webp
-  road:
-    background: img/backgrounds/windswept_road.webp
+  basement:
+    background: img/backgrounds/basement.jpg
+  city:
+    background: img/backgrounds/cappie_dirty_city.jpg
+  fountain:
+    background: img/backgrounds/fountain.jpg
+  office:
+    background: img/backgrounds/office.jpg
+  protest:
+    background: img/backgrounds/protest.jpg

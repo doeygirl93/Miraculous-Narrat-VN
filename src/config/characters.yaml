@@ -10,21 +10,36 @@ characters:
     sprites:
       idle: none
     name: You
-  francis:
+  marinette:
     sprites:
-      idle: francis.webp
+      idle: marinette_ladybug.png
+      commie: marinette_commie.png
+      cap: marinette_cappie.png
     style:
       color: white
-    name: Francis
-  isaac:
+    name: Marinette
+  marx:
     sprites:
-      idle: isaac.webp
+      idle: tiki_commie.png
     style:
       color: white
-    name: Isaac
-  philip:
+    name: Karl Marx
+  adrian:
     sprites:
-      idle: philip.webp
+      idle: adriain_agreste.jpg
+      evil: evil_adriain_agreste.jpg
     style:
       color: white
-    name: Philip
+    name: Adrian
+  alya:
+    sprites:
+      idle: alya.png
+    style:
+      color: white
+    name: Alya
+  Gabe:
+    sprites:
+      idle: cap_gabreil.jpg
+    style:
+      color: white
+    name: Gabreil

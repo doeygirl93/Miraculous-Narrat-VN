@@ -1,19 +1,23 @@
 ---
-gameTitle: Narrat Basics tut
+gameTitle: Communist Ladybug
 saveFileName: Narrat Demo
 dialogPanel:
-  allowHistoryToggling: true # This will add a button with the auto/skip button that allows the player to toggle viewing dialog history.
-  overlayMode: false
-  rightOffset: 0
-  bottomOffset: 0
-  width: 400
-  height: 720
-  textSpeed: 20
-  animateText: false
+  textSpeed: 30
+  animateText: true
   timeBetweenLines: 100
-  historyLength: 200 # The number of dialogue lines to keep in the history
-  hideDuringTransition: true # Setting this to true will make the dialog panel hide during screen transitions
-  showAfterScriptEnd: false # Setting this to true will make the dialog panel stay on even if the narrat script ends
+  overlayMode: true
+  rightOffset: 100
+  bottomOffset: 50
+  width: 475
+  height: 680
+  hideDuringTransition: false
+  showAfterScriptEnd: false
+  showOldChoices: false
+  showChoiceOutcomes: true
+  lockSeenChoices: false
+  allowSpacebarInChoices: false
+  clickToFinish: true
+
 input:
   showPromptsOnGamepad: true
   showPromptsOnKeyboard: true
@@ -37,7 +41,7 @@ hudStats:
   money:
     icon: img/ui/money.webp
     name: Money
-    startingValue: 200
+    startingValue: 500
     minValue: 0
 saves:
   mode: manual
@@ -54,4 +58,4 @@ saves:
     foregroundImage: "img/ui/autosave_spinner.png"
 menuButtons:
   new-game:
-    text: Start a new game
+    text: Start a new adventure
