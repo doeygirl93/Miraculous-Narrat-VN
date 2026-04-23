@@ -10,7 +10,7 @@ export default defineConfig(({ command }) => {
   process.env.VITE_BUILD_VERSION = packageJson?.version ?? "Unknown";
   process.env.VITE_GAME_NAME = packageJson?.name ?? "Unknown Game";
   const conf: UserConfigExport = {
-    base: "",
+    base: "./",
     optimizeDeps: {
       exclude: ["steamworks.js"],
     },
